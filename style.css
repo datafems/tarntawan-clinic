@@ -1,0 +1,252 @@
+
+
+:root {
+  --color-primary: #F35E1C;
+  --color-secondary: #FEBE74;
+  --color-light: #F4F1EA;
+  --color-blue: #0F62A6;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(235deg,var(--color-secondary), var(--color-primary));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: 0.3s;
+}
+
+/* Review Section */
+
+.review-section {
+  margin-top: 4rem;
+  padding: 3rem 1.5rem;
+}
+
+.review-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Noto Sans Thai', sans-serif;
+  line-height: 1.8;
+}
+
+h1 {
+  /*font-family: 'Montserrat';*/
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 2.9rem;
+
+  margin-bottom: 1.4rem;
+}
+
+h2 {
+  /*font-family: 'Montserrat';*/
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 2.9rem;
+
+  margin-bottom: 1.4rem;
+}
+
+.remark{
+    padding-top: 1rem;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.blockquote {
+  border-left: 5px solid var(--color-primary);
+  padding-left: 6;
+  margin: 8 0;
+  font-style: normal;
+  color: black;
+  font-size: 40px;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  background: var(--color-secondary);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  img {
+    max-width: 30%;
+  }
+}
+
+.review {
+  margin-top: 1.5rem;
+  margin-left: 1.5rem;
+  font-size: 1.1rem;
+  text-align: left;
+  animation: fadeIn 0.6s ease-in;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Article Section */
+.article-section {
+  margin-top: 4rem;
+  padding: 3rem 1.5rem;
+  background: var(--color-light);
+}
+
+.article-container {
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Noto Sans Thai', sans-serif;
+  line-height: 1.8;
+}
+
+.article-section h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.article-highlight {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.event-box {
+  background: white;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.register-btn {
+  display: inline-block;
+  align-items: center;
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--color-secondary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* About Section */
+.about-section {
+    margin-top: 4rem;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    background-color: #f4f4f4;
+    font-family: 'Noto Sans Thai', sans-serif;
+    color: #333;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 0.2rem 1.5rem;
+    max-width: 100%;
+    text-align: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    background-color: var(--color-light);
+    color: #333;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
+
+/*
+@font-face {
+    font-family: "Font Awesome 5 Brands";
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: url(../webfonts/fa-brands-400.eot);
+    src: url(../webfonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(../webfonts/fa-brands-400.woff2) format("woff2"),url(../webfonts/fa-brands-400.woff) format("woff"),url(../webfonts/fa-brands-400.ttf) format("truetype"),url(../webfonts/fa-brands-400.svg#fontawesome) format("svg")
+}
+    */
+
+.fab {
+    font-family: "Font Awesome 5 Brands"
+}
+
+/*
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-style: normal;
+    font-weight: 400;
+    font-display: auto;
+    src: url(../webfonts/fa-regular-400.eot);
+    src: url(../webfonts/fa-regular-400.eot?#iefix) format("embedded-opentype"),url(../webfonts/fa-regular-400.woff2) format("woff2"),url(../webfonts/fa-regular-400.woff) format("woff"),url(../webfonts/fa-regular-400.ttf) format("truetype"),url(../webfonts/fa-regular-400.svg#fontawesome) format("svg")
+}
+  */
+
+.fab,.far {
+    font-weight: 400
+}
+
+.fa-map-marker {
+  color: var(--color-primary);
+  font-size: 24px;
+  padding: 5px;
+}
+
+.fa-facebook-f {
+  color: var(--color-primary);
+  font-size: 24px;
+  padding: 5px;
+}
+
+.fa-instagram {
+  color: var(--color-primary);
+  font-size: 24px;
+  padding: 5px;
+}
