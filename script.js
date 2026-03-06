@@ -18,63 +18,66 @@ const reviews = [
 ];
 */
 
-const url = "https://opensheet.elk.sh/1dDYMItlUhtZLbIqTlbvU3Yk28qncY0mNm1qOQmIuY6Y/Review";
+document.addEventListener("DOMContentLoaded", () => {
+
+  const url = "https://opensheet.elk.sh/1dDYMItlUhtZLbIqTlbvU3Yk28qncY0mNm1qOQmIuY6Y/Review";
 
 
-const openBtn = document.getElementById("openBtn");
-const reviewText = document.getElementById("reviewText");
-const remarkText = document.getElementById("remarkText");
-const reviewHeader = document.getElementById("reviewHeader");
-const reviewImg = document.getElementById("reviewImg");
+  const openBtn = document.getElementById("openBtn");
+  const reviewText = document.getElementById("reviewText");
+  const remarkText = document.getElementById("remarkText");
+  const reviewHeader = document.getElementById("reviewHeader");
+  const reviewImg = document.getElementById("reviewImg");
 
-function getRandomReview(reviews) {
-    const randomIndex = Math.floor(Math.random() * reviews.length);
-    return reviews[randomIndex];
-}
-async function loadReviews() {
-
-  const res = await fetch(url);
-  const data = await res.json();
-
-  const review = getRandomReview(data);
-
-  const paragraphs = review.review
-    .split(/\n/)
-    .map(p => `<p>${p}</p>`)
-    .join("");
-
-    reviewText.innerHTML = paragraphs;
-
+  function getRandomReview(reviews) {
+      const randomIndex = Math.floor(Math.random() * reviews.length);
+      return reviews[randomIndex];
   }
+  async function loadReviews() {
+
+    const res = await fetch(url);
+    const data = await res.json();
+
+    const review = getRandomReview(data);
+
+    const paragraphs = review.review
+      .split(/\n/)
+      .map(p => `<p>${p}</p>`)
+      .join("");
+
+      reviewText.innerHTML = paragraphs;
+
+    }
 
 
 
-openBtn.addEventListener("click", () => {
-    const isOpen = reviewImg.classList.toggle("open");
+  openBtn.addEventListener("click", () => {
+      const isOpen = reviewImg.classList.toggle("open");
 
-  if (isOpen) {
-    // OPEN state
-    //const review = getRandomReview();
-    //reviewText.innerHTML = review;
+    if (isOpen) {
+      // OPEN state
+      //const review = getRandomReview();
+      //reviewText.innerHTML = review;
 
-    document.addEventListener("DOMContentLoaded", loadReviews);
+      loadReviews();
 
-    openBtn.textContent = "เปิดรีวิวอีกครั้ง"
+      openBtn.textContent = "เปิดรีวิวอีกครั้ง"
 
-    reviewText.classList.remove("hidden");
-    reviewHeader.classList.add("hidden");
-    remarkText.classList.remove("hidden");
-    reviewImg.classList.add("hidden");
+      reviewText.classList.remove("hidden");
+      reviewHeader.classList.add("hidden");
+      remarkText.classList.remove("hidden");
+      reviewImg.classList.add("hidden");
 
-  } else {
-    // CLOSE state
-    document.body.scrollIntoView({ behavior: 'smooth' });
-    openBtn.textContent = "เปิดรีวิว"
+    } else {
+      // CLOSE state
+      document.body.scrollIntoView({ behavior: 'smooth' });
+      openBtn.textContent = "เปิดรีวิว"
 
-    reviewText.classList.add("hidden");
-    reviewHeader.classList.remove("hidden");
-    remarkText.classList.add("hidden");
-    reviewImg.classList.remove("hidden");
-  }
-  
+      reviewText.classList.add("hidden");
+      reviewHeader.classList.remove("hidden");
+      remarkText.classList.add("hidden");
+      reviewImg.classList.remove("hidden");
+    }
+    
+  });
 });
