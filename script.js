@@ -57,7 +57,7 @@ openBtn.addEventListener("click", () => {
     //const review = getRandomReview();
     //reviewText.innerHTML = review;
 
-    loadReviews();
+    document.addEventListener("DOMContentLoaded", loadReviews);
 
     openBtn.textContent = "เปิดรีวิวอีกครั้ง"
 
