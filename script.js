@@ -1,3 +1,5 @@
+// Use For Test
+/*
 const reviews = [
   "Text 1",
   "Text 2",
@@ -14,6 +16,10 @@ const reviews = [
 <p>หนูขอขอบคุณทีมงานและคณะแพทย์หมอพยาบาลและทีมงานคลินิกทานตะวันที่ให้ปรึกษาตลอดเวลาที่ หนูใช้ยาจนสิ้นสุดการครรภ์จนสำเร็จ
 ตอนนี้หนูก็ทำงานได้ปกติแล้วหนูขอให้คลินิกทานตะวันอยู่กับพวกเราตลอดไปนะขอบคุณมากๆนะคะที่เป็นแสงสว่างให้อีกครั้ง</p>`
 ];
+*/
+
+const url = "https://opensheet.elk.sh/1dDYMItlUhtZLbIqTlbvU3Yk28qncY0mNm1qOQmIuY6Y/Review";
+
 
 const openBtn = document.getElementById("openBtn");
 const reviewText = document.getElementById("reviewText");
@@ -21,18 +27,37 @@ const remarkText = document.getElementById("remarkText");
 const reviewHeader = document.getElementById("reviewHeader");
 const reviewImg = document.getElementById("reviewImg");
 
-function getRandomReview() {
+function getRandomReview(reviews) {
     const randomIndex = Math.floor(Math.random() * reviews.length);
     return reviews[randomIndex];
 }
+async function loadReviews() {
+
+  const res = await fetch(url);
+  const data = await res.json();
+
+  const review = getRandomReview(data);
+
+  const paragraphs = review.review
+    .split(/\n/)
+    .map(p => `<p>${p}</p>`)
+    .join("");
+
+    reviewText.innerHTML = paragraphs;
+
+  }
+
+
 
 openBtn.addEventListener("click", () => {
     const isOpen = reviewImg.classList.toggle("open");
 
   if (isOpen) {
     // OPEN state
-    const review = getRandomReview();
-    reviewText.innerHTML = review;
+    //const review = getRandomReview();
+    //reviewText.innerHTML = review;
+
+    loadReviews();
 
     openBtn.textContent = "เปิดรีวิวอีกครั้ง"
 
